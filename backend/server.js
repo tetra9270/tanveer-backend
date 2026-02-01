@@ -33,6 +33,7 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/settings', settingRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/seed', require('./routes/seed'));
 
 // Serve uploaded files statically
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
