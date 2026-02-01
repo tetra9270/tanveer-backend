@@ -7,12 +7,12 @@ const ProductSchema = new mongoose.Schema({
     brand: { type: String, default: 'Other' }, // Antiva, Avanti, etc.
     title: { type: String, required: true },
     subtitle: String,
-    specs: String, // Keep for backward compatibility or simple display
+    specs: Object, // Changed from String to Object to match frontend expectation
     image: String, // URL
     description: String,
     videoLink: String,
     brochureLink: String,
-    features: [String], // Array of strings
+    keyFeatures: [String], // Changed from 'features' to match frontend 'keyFeatures'
     specifications: { type: Map, of: String }, // Flexible key-value pairs
     isAvailableOnGeM: { type: Boolean, default: false } // Inferred from subtitle
 }, { timestamps: true });

@@ -5,7 +5,7 @@ const Blog = require('../models/Blog');
 const SiteSettings = require('../models/SiteSettings');
 
 // Helper to create common specs (Replicated from frontend modelData.js)
-const createModel = (id, title, subtitle, specs, description = "") => ({
+const createModel = (id, title, subtitle, specs, description = "", keyFeatures = []) => ({
     id,
     title,
     subtitle,
@@ -14,11 +14,12 @@ const createModel = (id, title, subtitle, specs, description = "") => ({
     category: "Document Shredders", // Defaulting for seed
     subcategory: "Office", // Defaulting for seed
     specs,
+    keyFeatures,
     brochureLink: "#",
     videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ"
 });
 
-const createAppModel = (id, title, subtitle, specs, description = "") => ({
+const createAppModel = (id, title, subtitle, specs, description = "", keyFeatures = []) => ({
     id,
     title,
     subtitle,
@@ -27,11 +28,12 @@ const createAppModel = (id, title, subtitle, specs, description = "") => ({
     category: "Special Application",
     subcategory: "Industrial",
     specs,
+    keyFeatures,
     brochureLink: "#",
     videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ"
 });
 
-const createLaminatorModel = (id, title, subtitle, specs, description = "") => ({
+const createLaminatorModel = (id, title, subtitle, specs, description = "", keyFeatures = []) => ({
     id,
     title,
     subtitle,
@@ -40,6 +42,7 @@ const createLaminatorModel = (id, title, subtitle, specs, description = "") => (
     category: "Laminators",
     subcategory: "Office",
     specs,
+    keyFeatures,
     brochureLink: "#",
     videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ"
 });
