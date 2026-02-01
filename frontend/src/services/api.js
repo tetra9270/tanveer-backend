@@ -64,7 +64,10 @@ export const api = {
         const response = await fetch(`${API_URL}/blogs/${id}`, {
             method: 'DELETE'
         });
-        if (!response.ok) throw new Error('Failed to delete blog');
+        if (!response.ok) {
+            const error = await response.json().catch(() => ({}));
+            throw new Error(error.message || 'Failed to delete blog');
+        }
         return response.json();
     },
 
