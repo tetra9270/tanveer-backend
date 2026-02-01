@@ -29,7 +29,7 @@ const settingRoutes = require('./routes/settings');
 const uploadRoutes = require('./routes/uploadRoutes');
 
 app.use('/api/products', productRoutes);
-app.use('/api/blog', blogRoutes);
+app.use('/api/blogs', blogRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/settings', settingRoutes);
 app.use('/api/upload', uploadRoutes);
