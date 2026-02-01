@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+  /* New Palette */
+  --primary-green: #0B874B;
+  /* Recycled Green */
+  --carbon-black: #060606;
+  --neutral-ink: #111827;
+  --neutral-bg: #F9FAFB;
+  --neutral-divider: #E5E7EB;
+  --mid-gray: #6B7280;
+  --white: #FFFFFF;
+
+  /* Mappings to existing variables to ensure smooth transition */
+  --primary-blue: #0B874B;
+  /* Mapping old primary to Green */
+  --primary-dark: #060606;
+  /* Mapping dark variants to Carbon Black */
+  --accent-red: #0B874B;
+  /* Replacing Red with Green (or could use Black, but Green is the color) */
+
+  --text-dark: #111827;
+  /* Ink */
+  --text-light: #6B7280;
+  /* Mid Gray */
+  --bg-light: #F9FAFB;
+  /* Neutral Background */
+  --border-color: #E5E7EB;
+  /* Neutral Divider */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  color: var(--primary-green);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary-green);
+  color: var(--white);
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #086638;
+  /* Darker shade of green manually calculated */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
