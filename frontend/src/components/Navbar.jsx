@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 import { Menu, X } from 'lucide-react';
+import trustedBadge from '../assets/trusted_badge.svg';
+import serviceBadge from '../assets/service_badge.svg';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -34,8 +36,8 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="trust-badges">
-                    <img src="/src/assets/trusted_badge.svg" alt="Trusted Since 2010" className="trust-badge-img" />
-                    <img src="/src/assets/service_badge.svg" alt="Service Expert" className="trust-badge-img" />
+                    <img src={trustedBadge} alt="Trusted Since 2010" className="trust-badge-img" />
+                    <img src={serviceBadge} alt="Service Expert" className="trust-badge-img" />
                 </div>
 
                 {/* Mobile Menu Toggle */}
