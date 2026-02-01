@@ -4,6 +4,7 @@ import { useData } from '../context/DataContext';
 import { Menu, X } from 'lucide-react';
 import trustedBadge from '../assets/trusted_badge.svg';
 import serviceBadge from '../assets/service_badge.svg';
+import logo from '../assets/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
     // Default fallbacks if settings haven't loaded yet
     const phone = settings?.phone || '+91 85878 38635';
     const email = settings?.email || 'info@tt-officesolutions.com';
-    const logoUrl = settings?.logoUrl || '/src/assets/logo.png';
+    const logoUrl = settings?.logoUrl || logo;
     const companyName = settings?.companyName || 'T&T OFFICE SOLUTIONS';
 
     return (
@@ -30,7 +31,7 @@ const Navbar = () => {
             </div>
             <div className="top-bar container">
                 <div className="logo-section">
-                    <img src={logoUrl} alt={companyName} className="company-logo" onError={(e) => e.target.src = '/src/assets/logo.png'} />
+                    <img src={logoUrl} alt={companyName} className="company-logo" onError={(e) => e.target.src = logo} />
                     <div className="logo-text">
                         <h1>{companyName}</h1>
                     </div>
