@@ -14,6 +14,24 @@ const AdminDashboard = () => {
         }
     }, [navigate]);
 
+    const [searchTerm, setSearchTerm] = React.useState('');
+
+    // Filter products based on search term
+    const getFilteredModels = () => {
+        if (!searchTerm) return allModels;
+        const lowerTerm = searchTerm.toLowerCase();
+        return Object.values(allModels).filter(model =>
+            (model.title && model.title.toLowerCase().includes(lowerTerm)) ||
+            (model.category && model.category.toLowerCase().includes(lowerTerm)) ||
+            (model.subcategory && model.subcategory.toLowerCase().includes(lowerTerm))
+        ).reduce((acc, model) => {
+            acc[model.id] = model;
+            return acc;
+        }, {});
+    };
+
+    const filteredModels = getFilteredModels();
+
     const handleLogout = () => {
         localStorage.removeItem('isAdmin');
         navigate('/admin');
@@ -43,14 +61,23 @@ const AdminDashboard = () => {
             </div>
 
             <div className="product-list dashboard-section">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                    <h3>Product Catalog ({Object.keys(allModels).length})</h3>
-                    <Link to="/admin/product/new" className="add-btn" style={{ background: '#27ae60', padding: '10px 20px', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>+ Add Product</Link>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
+                    <h3>Product Catalog ({Object.keys(filteredModels).length})</h3>
+                    <div style={{ display: 'flex', gap: '10px', flex: 1, justifyContent: 'flex-end' }}>
+                        <input
+                            type="text"
+                            placeholder="Search products..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ddd', minWidth: '250px' }}
+                        />
+                        <Link to="/admin/product/new" className="add-btn" style={{ background: '#27ae60', padding: '10px 20px', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>+ Add Product</Link>
+                    </div>
                 </div>
 
-                {Object.keys(allModels).length === 0 ? <p>No products found.</p> : (
+                {Object.keys(filteredModels).length === 0 ? <p>No products found matching "{searchTerm}".</p> : (
                     Object.entries(
-                        Object.values(allModels).reduce((acc, product) => {
+                        Object.values(filteredModels).reduce((acc, product) => {
                             const cat = product.category || 'Uncategorized';
                             const sub = product.subcategory || 'General';
                             if (!acc[cat]) acc[cat] = {};

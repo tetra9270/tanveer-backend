@@ -134,9 +134,22 @@
         text-align: left;
     }
 
+    .logo-text {
+        display: block !important;
+        width: auto;
+    }
+
     .logo-text h1 {
-        display: none;
-        /* Hide text on mobile to save space if needed, or keep small */
+        display: block !important;
+        font-size: 14px;
+        /* Smaller to ensure it fits */
+        color: #000000 !important;
+        /* Force black color */
+        visibility: visible !important;
+        opacity: 1 !important;
+        white-space: normal;
+        /* Allow wrapping if needed */
+        line-height: 1.2;
     }
 
     /* Hide desktop trust badges on mobile header to declutter */
