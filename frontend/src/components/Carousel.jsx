@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useData } from '../context/DataContext';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './Carousel.css';
+
+// ... (images remain same, skipping imports for brevity in tool call if not strictly required to be replaced, but here I am replacing the top block so I must include them or use a smaller range. I will use smaller range to be safe)
+
+/* 
+   I will split this into two edits: 
+   1. Add import and const navigate 
+   2. Add onClick to div
+*/
 
 // Importing Images
 import slider1 from '../assets/avanti-slider1.png';
@@ -67,6 +76,7 @@ const slides = [
 const Carousel = () => {
     const { settings } = useData();
     const [current, setCurrent] = useState(0);
+    const navigate = useNavigate();
 
     // Use settings images if available, otherwise fallback to local defaults (just 3 for demo if no settings)
     const displaySlides = (settings?.carouselImages && settings.carouselImages.length > 0)
@@ -99,6 +109,8 @@ const Carousel = () => {
                 <div
                     key={slide.id}
                     className={index === current ? 'slide active' : 'slide'}
+                    onClick={() => navigate('/products')}
+                    style={{ cursor: 'pointer' }}
                 >
                     {index === current && (
                         <>
