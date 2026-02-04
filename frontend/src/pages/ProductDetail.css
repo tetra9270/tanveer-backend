@@ -33,8 +33,8 @@
 }
 
 .featured-title {
-    color: var(--primary-green);
-    /* Updated to Theme Green */
+    color: #dc3545;
+    /* Updated to Brand Red */
     font-size: 1.5rem;
     font-weight: 800;
     margin-bottom: 5px;
@@ -87,20 +87,20 @@
 
 .model-category a {
     text-decoration: none;
-    color: var(--primary-green);
-    /* Updated to Theme Green */
+    color: #dc3545;
+    /* Updated to Brand Red */
     display: inline-block;
     font-weight: 700;
     transition: color 0.2s;
 }
 
 .model-category a:hover {
-    color: #086638;
-    /* Darker green on hover */
+    color: #a71d2a;
+    /* Darker red on hover */
 }
 
 .model-category a span {
-    color: var(--primary-green);
+    color: #dc3545;
 }
 
 .model-category a .specs {

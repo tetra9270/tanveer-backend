@@ -59,7 +59,7 @@ const Products = () => {
                                         onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
                                         onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
                                     >
-                                        <h4 style={{ margin: '0 0 10px 0', color: '#2c3e50' }}>{model.title}</h4>
+                                        <h4 style={{ margin: '0 0 10px 0', color: '#dc3545' }}>{model.title}</h4>
                                         <p style={{ fontSize: '14px', color: '#666', margin: 0 }}>
                                             {typeof model.specs === 'object' ? 'View Details for Specs' : (model.specs || 'View Details')}
                                         </p>
