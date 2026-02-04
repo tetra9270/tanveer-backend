@@ -33,7 +33,13 @@ const BlogSchema = new mongoose.Schema({
 const Blog = mongoose.models.Blog || mongoose.model('Blog', BlogSchema);
 
 // Connection
-const MONGO_URI = 'mongodb+srv://tetra9270_db_user:02GjyJeDMwQzRNjU@cluster0.3himvhv.mongodb.net/tanveer_db?retryWrites=true&w=majority&appName=Cluster0';
+// Connection
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+    console.error("MONGO_URI is not defined in .env file");
+    process.exit(1);
+}
 
 // Data Helpers
 const createModel = (id, title, subtitle, specs, description = "", keyFeatures = []) => ({
