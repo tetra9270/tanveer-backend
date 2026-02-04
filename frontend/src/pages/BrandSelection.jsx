@@ -21,12 +21,12 @@ const BrandSelection = () => {
             <div className="brand-cards">
                 <div className="brand-card" onClick={() => handleSelectBrand('avanti')}>
                     <div className="brand-logo">AVANTI</div>
-                    <button className="select-btn">View Avanti Products</button>
+                    <button className="select-btn" style={{ backgroundColor: '#dc3545', color: 'white' }}>View Avanti Products</button>
                 </div>
 
                 <div className="brand-card" onClick={() => handleSelectBrand('antiva')}>
                     <div className="brand-logo">ANTIVA</div>
-                    <button className="select-btn">View Antiva Products</button>
+                    <button className="select-btn" style={{ backgroundColor: '#dc3545', color: 'white' }}>View Antiva Products</button>
                 </div>
             </div>
 

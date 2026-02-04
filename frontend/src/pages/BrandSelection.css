@@ -53,9 +53,9 @@
 }
 
 .select-btn {
-    background: #dc3545;
+    background: #dc3545 !important;
     /* Updated to Brand Red */
-    color: white;
+    color: white !important;
     border: none;
     padding: 10px 20px;
     border-radius: 25px;
@@ -65,7 +65,7 @@
 }
 
 .brand-card:hover .select-btn {
-    background: #a71d2a;
+    background: #a71d2a !important;
     /* Darker red on hover */
 }
 
