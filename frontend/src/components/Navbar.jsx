@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import trustedBadge from '../assets/trusted_badge.svg';
 import serviceBadge from '../assets/service_badge.svg';
 import logo from '../assets/logo.png';
@@ -22,10 +22,16 @@ const Navbar = () => {
             <div className="utility-bar">
                 <div className="container utility-content">
                     <div className="contact-info">
-                        <span>📞 {phone}</span>
+                        <span className="bold-green-text">📞 {phone}</span>
                     </div>
                     <div className="email-info">
-                        <span>✉️ {email}</span>
+                        <span className="bold-green-text">✉️ {email}</span>
+                    </div>
+                    <div className="social-icons">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><Facebook size={16} /></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><Twitter size={16} /></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><Instagram size={16} /></a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><Linkedin size={16} /></a>
                     </div>
                 </div>
             </div>

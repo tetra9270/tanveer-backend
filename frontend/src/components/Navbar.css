@@ -22,6 +22,33 @@
     gap: 5px;
 }
 
+.bold-green-text {
+    color: #0f8b4d;
+    /* Or var(--primary-green) if defined */
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-left: 15px;
+    border-left: 1px solid #ccc;
+    padding-left: 15px;
+}
+
+.social-icons a {
+    color: #555;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.social-icons a:hover {
+    color: #0f8b4d;
+}
+
 .header {
     background-color: var(--white);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

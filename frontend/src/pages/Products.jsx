@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
+import { Search } from 'lucide-react';
 import ProductsBanner from '../components/ProductsBanner';
 import ProductSection from '../components/ProductSection';
 import ShreddersImg from '../assets/shredders.png';
@@ -29,7 +30,8 @@ const Products = () => {
         <div className="page-container" style={{ paddingBottom: '60px' }}>
             <ProductsBanner />
 
-            <div className="container" style={{ marginTop: '30px', marginBottom: '20px' }}>
+            <div className="container" style={{ marginTop: '30px', marginBottom: '20px', position: 'relative' }}>
+                <Search size={20} color="#0f8b4d" style={{ position: 'absolute', left: '35px', top: '50%', transform: 'translateY(-50%)' }} />
                 <input
                     type="text"
                     placeholder="Search all products..."
@@ -37,7 +39,7 @@ const Products = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     style={{
                         width: '100%',
-                        padding: '15px',
+                        padding: '15px 15px 15px 45px',
                         fontSize: '16px',
                         border: '1px solid #ddd',
                         borderRadius: '8px',

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BrandSection from './components/BrandSection';
 import BuyProductsBanner from './components/BuyProductsBanner';
+import EnquiryButton from './components/EnquiryButton';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -72,6 +73,7 @@ function App() {
           <BuyProductsBanner />
           <BrandSection />
           <Footer />
+          <EnquiryButton />
         </div>
       </Router>
     </DataProvider>

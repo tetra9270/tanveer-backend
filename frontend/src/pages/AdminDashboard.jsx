@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useData } from '../context/DataContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { Search } from 'lucide-react';
 import './Admin.css';
 
 const AdminDashboard = () => {
@@ -63,15 +64,18 @@ const AdminDashboard = () => {
             <div className="product-list dashboard-section">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '10px' }}>
                     <h3>Product Catalog ({Object.keys(filteredModels).length})</h3>
-                    <div style={{ display: 'flex', gap: '10px', flex: 1, justifyContent: 'flex-end' }}>
-                        <input
-                            type="text"
-                            placeholder="Search products..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ddd', minWidth: '250px' }}
-                        />
-                        <Link to="/admin/product/new" className="add-btn" style={{ background: '#27ae60', padding: '10px 20px', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>+ Add Product</Link>
+                    <div style={{ display: 'flex', gap: '10px', flex: 1, justifyContent: 'flex-end', position: 'relative' }}>
+                        <div style={{ position: 'relative', flex: '0 1 250px' }}>
+                            <Search size={20} color="#0f8b4d" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)' }} />
+                            <input
+                                type="text"
+                                placeholder="Search products..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                style={{ padding: '10px 10px 10px 35px', borderRadius: '4px', border: '1px solid #ddd', width: '100%' }}
+                            />
+                        </div>
+                        <Link to="/admin/product/new" className="add-btn" style={{ background: '#27ae60', padding: '10px 20px', color: 'white', textDecoration: 'none', borderRadius: '4px', whiteSpace: 'nowrap' }}>+ Add Product</Link>
                     </div>
                 </div>
 

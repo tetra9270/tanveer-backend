@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Search } from 'lucide-react';
 import './ProductDetail.css';
 import ShreddersImg from '../assets/shredders.png';
 import AppShreddersImg from '../assets/application-shredders.png';
@@ -267,7 +268,8 @@ const AvantiDetail = () => {
 
                 {/* Right Column: Key Features / Model Lists */}
                 <div className="right-column">
-                    <div className="search-bar-container" style={{ marginBottom: '20px' }}>
+                    <div className="search-bar-container" style={{ marginBottom: '20px', position: 'relative' }}>
+                        <Search size={20} color="#0f8b4d" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
                         <input
                             type="text"
                             placeholder="Search models..."
@@ -275,7 +277,7 @@ const AvantiDetail = () => {
                             onChange={(e) => setSearchTerm(e.target.value)}
                             style={{
                                 width: '100%',
-                                padding: '12px',
+                                padding: '12px 12px 12px 40px',
                                 fontSize: '16px',
                                 border: '1px solid #ddd',
                                 borderRadius: '8px',
