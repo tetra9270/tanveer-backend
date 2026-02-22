@@ -30,12 +30,12 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="top-bar container">
-                <div className="logo-section">
+                <Link to="/products" className="logo-section" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
                     <img src={logoUrl} alt={companyName} className="company-logo" onError={(e) => e.target.src = logo} />
                     <div className="logo-text">
                         <h1>{companyName}</h1>
                     </div>
-                </div>
+                </Link>
                 <div className="trust-badges">
                     <img src={trustedBadge} alt="Trusted Since 2010" className="trust-badge-img" />
                     <img src={serviceBadge} alt="Service Expert" className="trust-badge-img" />

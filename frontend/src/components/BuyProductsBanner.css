@@ -1,0 +1,169 @@
+.buy-products-section {
+    width: 100%;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+
+.banner-top-html {
+    width: 100%;
+    background: #f0f0f0;
+    /* The image has complex intersecting semi-transparent white curves on gray,
+       we will use linear gradients to simulate this dynamic background */
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.7) 30%, transparent 31%, transparent 60%, rgba(255, 255, 255, 0.7) 61%),
+        linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.4) 41%, rgba(255, 255, 255, 0.4) 55%, transparent 56%),
+        #e5e8eb;
+    border-top: 1px solid #ddd;
+    position: relative;
+    padding: 10px 0;
+}
+
+.banner-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 120px;
+}
+
+.banner-empty-left {
+    flex: 1;
+}
+
+.banner-images-center {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    z-index: 2;
+    padding-bottom: 5px;
+}
+
+.b-img {
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.img-1 {
+    height: 110px;
+}
+
+/* Tall black shredder */
+.img-2 {
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+/* Flat laminator */
+.img-3 {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Long app shredder */
+.img-4 {
+    height: 95px;
+}
+
+/* White pet shredder */
+
+
+.banner-text-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    z-index: 2;
+}
+
+.banner-text-right h2 {
+    color: #1a568c;
+    /* Blue text */
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+}
+
+.banner-text-right h3 {
+    color: #417a5b;
+    /* Green text */
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+}
+
+.banner-bottom {
+    background-color: #3b6d51;
+    /* Dark green matching the image */
+    padding: 12px 0;
+}
+
+.banner-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.banner-text {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.banner-btn {
+    background: linear-gradient(to bottom, #a0a0a0, #404040);
+    color: white;
+    font-weight: bold;
+    border: 1px solid #333;
+    padding: 6px 16px;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: transform 0.1s;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4), 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-btn:active {
+    transform: translateY(1px);
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+    .banner-flex {
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    .banner-empty-left {
+        display: none;
+    }
+
+    .banner-text-right {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    .b-img {
+        transform: scale(0.8);
+    }
+
+    .banner-images-center {
+        gap: 5px;
+    }
+}

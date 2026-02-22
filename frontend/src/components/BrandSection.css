@@ -1,63 +1,86 @@
 .brand-section {
-    padding: 30px 0;
-    /* Reduced from 60px */
-    background-color: var(--white);
-    text-align: center;
-    border-top: 2px solid #dc3545;
-    /* Reduced thickness */
-    margin-top: 20px;
-    /* Reduced margin */
+    padding: 40px 0;
+    background-color: #f8f9fa;
+    /* Very Light gray background as per image */
+    border-top: none;
+    margin-top: 0;
 }
 
-.brand-section h3 {
-    margin-bottom: 20px;
-    /* Reduced from 30px */
-    color: #dc3545;
-    font-size: 20px;
-    /* Reduced from 28px */
+.brand-section-container {
+    display: flex;
+    justify-content: center;
+}
+
+.brand-content-wrapper {
+    width: 100%;
+    max-width: 450px;
+    /* Constrain width to align title with buttons */
+}
+
+.brand-header {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.brand-header h3 {
+    margin: 0;
+    color: #0d834d;
+    /* Green title */
+    font-size: 16px;
+    font-weight: bold;
     text-transform: uppercase;
-    font-weight: 800;
+}
+
+.brand-arrow {
+    font-size: 14px;
+    font-weight: 900;
+    margin-right: 5px;
 }
 
 .brands-container {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
 }
 
 .brand-box {
-    font-size: 18px;
-    /* Reduced from 30px */
-    font-weight: bold;
-    color: #dc3545;
-    padding: 15px 30px;
-    /* Reduced padding */
-    border: 2px solid #dc3545;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    /* Equal width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    font-size: 20px;
+    /* Large solid font for logos */
+    font-family: 'Arial Black', Impact, sans-serif;
+    font-weight: 900;
+    color: #ed212d;
+    /* Red logo color */
+    background: #fefefe;
+    border: 1px solid #d4d4d4;
+    /* Light gray border */
     border-radius: 6px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-in-out;
+    letter-spacing: 1.5px;
+    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.05);
+    /* very slight shadow for depth */
 }
 
 .brand-box:hover {
-    background: #dc3545;
-    color: white;
-    transform: translateY(-3px);
-    /* Subtle lift */
-    box-shadow: 0 6px 10px rgba(220, 53, 69, 0.3);
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-color: #b0b0b0;
+    transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 650px) {
     .brands-container {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
     }
 
     .brand-box {
         width: 100%;
-        max-width: 300px;
-        padding: 12px 20px;
-        font-size: 16px;
     }
 }
