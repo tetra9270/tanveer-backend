@@ -82,22 +82,30 @@ const AdminDashboard = () => {
                 {Object.keys(filteredModels).length === 0 ? <p>No products found matching "{searchTerm}".</p> : (
                     Object.entries(
                         Object.values(filteredModels).reduce((acc, product) => {
+                            let brand = product.brand;
+                            if (!brand || brand === 'Other') {
+                                if (product.title?.toUpperCase().includes('AVANTI')) brand = 'AVANTI';
+                                else if (product.title?.toUpperCase().includes('ANTIVA')) brand = 'ANTIVA';
+                                else brand = 'Other Brands';
+                            }
                             const cat = product.category || 'Uncategorized';
-                            const sub = product.subcategory || 'General';
-                            if (!acc[cat]) acc[cat] = {};
-                            if (!acc[cat][sub]) acc[cat][sub] = [];
-                            acc[cat][sub].push(product);
+
+                            if (!acc[brand]) acc[brand] = {};
+                            if (!acc[brand][cat]) acc[brand][cat] = [];
+                            acc[brand][cat].push(product);
                             return acc;
                         }, {})
-                    ).map(([category, subcategories]) => (
-                        <div key={category} className="category-group" style={{ marginBottom: '30px', border: '1px solid #eee', borderRadius: '8px', overflow: 'hidden' }}>
-                            <div style={{ background: '#f8f9fa', padding: '15px', borderBottom: '1px solid #eee', fontWeight: 'bold', fontSize: '1.2em' }}>
-                                {category}
+                    ).map(([brand, categories]) => (
+                        <div key={brand} className="brand-group" style={{ marginBottom: '30px', border: '1px solid #eee', borderRadius: '8px', overflow: 'hidden' }}>
+                            <div style={{ background: '#2c3e50', color: 'white', padding: '15px', fontWeight: 'bold', fontSize: '1.4em' }}>
+                                {brand}
                             </div>
                             <div style={{ padding: '15px' }}>
-                                {Object.entries(subcategories).map(([subcategory, products]) => (
-                                    <div key={subcategory} style={{ marginBottom: '20px' }}>
-                                        <h5 style={{ color: '#666', borderBottom: '2px solid #3498db', paddingBottom: '5px', display: 'inline-block', marginBottom: '10px' }}>{subcategory}</h5>
+                                {Object.entries(categories).map(([category, products]) => (
+                                    <div key={category} className="category-section" style={{ marginBottom: '25px' }}>
+                                        <div style={{ background: '#f8f9fa', padding: '10px 15px', borderBottom: '1px solid #ddd', fontWeight: 'bold', fontSize: '1.2em', marginBottom: '15px', borderRadius: '4px' }}>
+                                            {category}
+                                        </div>
                                         <div className="subcategory-products" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '15px' }}>
                                             {products.map(model => (
                                                 <div key={model.id} className="product-item" style={{ border: '1px solid #eee', padding: '15px', borderRadius: '6px', background: 'white' }}>
