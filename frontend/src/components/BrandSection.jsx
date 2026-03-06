@@ -12,8 +12,12 @@ const BrandSection = () => {
                         <h3>CHOICE OF BRAND</h3>
                     </div>
                     <div className="brands-container">
-                        <div className="brand-box avanti-logo" onClick={() => navigate('/products')} style={{ cursor: 'pointer' }}>AVANTI</div>
-                        <div className="brand-box antiva-logo" onClick={() => navigate('/products')} style={{ cursor: 'pointer' }}>ANTIVA</div>
+                        <div className="brand-box avanti-logo" onClick={() => navigate('/products')} style={{ cursor: 'pointer' }}>
+                            <img src="/assets/brand_avanti.png" alt="Avanti" />
+                        </div>
+                        <div className="brand-box antiva-logo" onClick={() => navigate('/products')} style={{ cursor: 'pointer' }}>
+                            <img src="/assets/brand_antiva.png" alt="Antiva" />
+                        </div>
                     </div>
                 </div>
             </div>

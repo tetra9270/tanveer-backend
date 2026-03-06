@@ -50,20 +50,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 38px;
-    font-size: 20px;
-    /* Large solid font for logos */
-    font-weight: 900;
-    color: #ed212d;
-    /* Red logo color */
+    height: 60px;
     background: #fefefe;
     border: 1px solid #d4d4d4;
     /* Light gray border */
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
-    letter-spacing: 1.5px;
-    text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.05);
-    /* very slight shadow for depth */
+    padding: 10px;
+    /* Space inside the box for the image */
+}
+
+.brand-box img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .brand-box:hover {
