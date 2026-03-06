@@ -47,7 +47,6 @@ const ProductSection = ({ title, products, showBrands = true, showViewDetails = 
                                 </div>
 
                                 <div className="product-actions">
-                                    <button className="btn-compare">Compare</button>
                                     <Link to={product.link} className="btn-view-details">
                                         View Details
                                     </Link>

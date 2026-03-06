@@ -169,24 +169,6 @@
     gap: 10px;
 }
 
-.btn-compare {
-    background-color: #a3a3a3;
-    /* Gray */
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.2s;
-    width: 100%;
-}
-
-.btn-compare:hover {
-    background-color: #888;
-}
-
 .btn-view-details {
     background-color: #0f8b4d;
     /* Dark green */
