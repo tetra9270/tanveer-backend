@@ -57,7 +57,14 @@ const Navbar = () => {
                 <div className="container nav-container">
                     <ul className="nav-links">
                         <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-                        <li><Link to="/products" onClick={() => setIsOpen(false)}>Products</Link></li>
+                        <li className="dropdown">
+                            <Link to="/products" className="dropbtn" onClick={() => setIsOpen(false)}>Products ▾</Link>
+                            <div className="dropdown-content">
+                                <Link to="/select-brand/document-shredders" onClick={() => setIsOpen(false)}>Document Shredders</Link>
+                                <Link to="/select-brand/app-shredders" onClick={() => setIsOpen(false)}>Multipurpose Application Shredders</Link>
+                                <Link to="/select-brand/laminators" onClick={() => setIsOpen(false)}>Document Laminators & Binders</Link>
+                            </div>
+                        </li>
                         <li><Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link></li>
                         <li><Link to="/support" onClick={() => setIsOpen(false)}>Support</Link></li>
                         <li><Link to="/aboutus" onClick={() => setIsOpen(false)}>About Us</Link></li>
