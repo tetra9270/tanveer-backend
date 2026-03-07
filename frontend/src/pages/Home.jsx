@@ -2,6 +2,7 @@ import React from 'react';
 import { useData } from '../context/DataContext';
 import Carousel from '../components/Carousel';
 import ProductSection from '../components/ProductSection';
+import BrandSection from '../components/BrandSection';
 import './Home.css';
 import ShreddersImg from '../assets/shredders.png';
 import AppShreddersImg from '../assets/application-shredders.png';
@@ -70,11 +71,8 @@ const Home = () => {
     return (
         <div className="home-page">
             <Carousel />
+            <BrandSection />
             <ProductSection title={settings?.homePageTitle || "Our Best Sellers"} products={bestSellers} showBrands={false} />
-
-
-
-            {/* Brand Section Removed - Moved to App.jsx */}
         </div>
     );
 };

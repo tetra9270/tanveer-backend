@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import BrandSection from './components/BrandSection';
 import BuyProductsBanner from './components/BuyProductsBanner';
 import EnquiryButton from './components/EnquiryButton';
 import Home from './pages/Home';
@@ -71,7 +70,6 @@ function App() {
             </Routes>
           </main>
           <BuyProductsBanner />
-          <BrandSection />
           <Footer />
           <EnquiryButton />
         </div>
