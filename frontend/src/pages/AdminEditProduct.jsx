@@ -159,21 +159,7 @@ const AdminEditProduct = () => {
 
             <div className="edit-form-container">
                 <form onSubmit={handleSubmit}>
-                    <div className="form-row" style={{ display: 'flex', gap: '20px' }}>
-                        <div className="form-group" style={{ flex: 1 }}>
-                            <label>Category</label>
-                            <input list="category-list" name="category" value={formData.category} onChange={handleChange} required />
-                            <datalist id="category-list">
-                                {categories.map(c => <option key={c} value={c} />)}
-                            </datalist>
-                        </div>
-                        <div className="form-group" style={{ flex: 1 }}>
-                            <label>Subcategory</label>
-                            <input list="subcategory-list" name="subcategory" value={formData.subcategory} onChange={handleChange} />
-                            <datalist id="subcategory-list">
-                                {subcategories.map(c => <option key={c} value={c} />)}
-                            </datalist>
-                        </div>
+                    <div className="form-row" style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
                         <div className="form-group" style={{ flex: 1 }}>
                             <label>Brand</label>
                             <select name="brand" value={formData.brand} onChange={handleChange} style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}>
@@ -181,6 +167,50 @@ const AdminEditProduct = () => {
                                 <option value="Avanti">Avanti</option>
                                 <option value="Other">Other</option>
                             </select>
+                        </div>
+                        <div className="form-group" style={{ flex: 1 }}>
+                            <label>Category</label>
+                            <div style={{ display: 'flex', gap: '5px' }}>
+                                <select
+                                    name="category"
+                                    value={formData.category}
+                                    onChange={handleChange}
+                                    required
+                                    style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
+                                >
+                                    <option value="" disabled>Select Category</option>
+                                    {[...new Set(Object.values(allModels).filter(m => {
+                                        let b = m.brand || 'Other';
+                                        if (b === 'Other' || !b) {
+                                            if (m.title?.toUpperCase().includes('AVANTI')) b = 'Avanti';
+                                            else if (m.title?.toUpperCase().includes('ANTIVA')) b = 'Antiva';
+                                            else b = 'Other';
+                                        }
+                                        return b.toLowerCase() === formData.brand.toLowerCase();
+                                    }).map(m => m.category).filter(Boolean).concat(formData.category ? [formData.category] : []))].map(c => (
+                                        <option key={c} value={c}>{c}</option>
+                                    ))}
+                                    <option value="New Category...">+ Add New Category</option>
+                                </select>
+                            </div>
+                            {formData.category === 'New Category...' && (
+                                <input
+                                    type="text"
+                                    name="category"
+                                    value=""
+                                    onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
+                                    placeholder="Type new category"
+                                    required
+                                    style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd', marginTop: '5px' }}
+                                />
+                            )}
+                        </div>
+                        <div className="form-group" style={{ flex: 1 }}>
+                            <label>Subcategory</label>
+                            <input list="subcategory-list" name="subcategory" value={formData.subcategory} onChange={handleChange} style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }} />
+                            <datalist id="subcategory-list">
+                                {subcategories.map(c => <option key={c} value={c} />)}
+                            </datalist>
                         </div>
                     </div>
 
