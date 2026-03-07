@@ -179,15 +179,14 @@ const AdminEditProduct = () => {
                                     style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ddd' }}
                                 >
                                     <option value="" disabled>Select Category</option>
-                                    {[...new Set(Object.values(allModels).filter(m => {
-                                        let b = m.brand || 'Other';
-                                        if (b === 'Other' || !b) {
-                                            if (m.title?.toUpperCase().includes('AVANTI')) b = 'Avanti';
-                                            else if (m.title?.toUpperCase().includes('ANTIVA')) b = 'Antiva';
-                                            else b = 'Other';
-                                        }
-                                        return b.toLowerCase() === formData.brand.toLowerCase();
-                                    }).map(m => m.category).filter(Boolean).concat(formData.category ? [formData.category] : []))].map(c => (
+                                    <option value="Document Shredders">Document Shredders</option>
+                                    <option value="Multipurpose Application Shredders">Multipurpose Application Shredders</option>
+                                    <option value="Document Laminators & Binders">Document Laminators & Binders</option>
+                                    {[...new Set(Object.values(allModels).map(m => m.category).filter(Boolean))].filter(c =>
+                                        c !== 'Document Shredders' &&
+                                        c !== 'Multipurpose Application Shredders' &&
+                                        c !== 'Document Laminators & Binders'
+                                    ).map(c => (
                                         <option key={c} value={c}>{c}</option>
                                     ))}
                                     <option value="New Category...">+ Add New Category</option>
