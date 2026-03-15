@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
-import { Menu, X, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Menu, X, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import trustedBadge from '../assets/trusted_badge.svg';
 import serviceBadge from '../assets/service_badge.svg';
 import logo from '../assets/logo.png';
@@ -12,10 +12,15 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     // Default fallbacks if settings haven't loaded yet
-    const phone = settings?.phone || '+91 85878 38635';
-    const email = settings?.email || 'info@tt-officesolutions.com';
+    const phone = settings?.phone || '+91 9811757846';
+    const email = settings?.email || 'ttofficesolutions786@gmail.com';
     const logoUrl = settings?.logoUrl || logo;
     const companyName = settings?.companyName || 'T&T OFFICE SOLUTIONS';
+    const facebookUrl = settings?.facebookUrl || 'https://facebook.com';
+    const twitterUrl = settings?.twitterUrl || 'https://twitter.com';
+    const instagramUrl = settings?.instagramUrl || 'https://instagram.com';
+    const linkedinUrl = settings?.linkedinUrl || 'https://linkedin.com';
+    const youtubeUrl = settings?.youtubeUrl || 'https://youtube.com';
 
     return (
         <header className="header">
@@ -28,10 +33,11 @@ const Navbar = () => {
                         <span className="bold-green-text">✉️ {email}</span>
                     </div>
                     <div className="social-icons">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><Facebook size={16} /></a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><Twitter size={16} /></a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><Instagram size={16} /></a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><Linkedin size={16} /></a>
+                        {facebookUrl && <a href={facebookUrl} target="_blank" rel="noopener noreferrer"><Facebook size={16} /></a>}
+                        {twitterUrl && <a href={twitterUrl} target="_blank" rel="noopener noreferrer"><Twitter size={16} /></a>}
+                        {instagramUrl && <a href={instagramUrl} target="_blank" rel="noopener noreferrer"><Instagram size={16} /></a>}
+                        {linkedinUrl && <a href={linkedinUrl} target="_blank" rel="noopener noreferrer"><Linkedin size={16} /></a>}
+                        {youtubeUrl && <a href={youtubeUrl} target="_blank" rel="noopener noreferrer"><Youtube size={16} /></a>}
                     </div>
                 </div>
             </div>

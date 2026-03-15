@@ -15,6 +15,8 @@ const AdminSettings = () => {
         facebookUrl: '',
         twitterUrl: '',
         instagramUrl: '',
+        linkedinUrl: '',
+        youtubeUrl: '',
         carouselImages: '',
         homePageTitle: '',
         brandSelectionTitle: '',
@@ -34,6 +36,8 @@ const AdminSettings = () => {
                 facebookUrl: settings.facebookUrl || '',
                 twitterUrl: settings.twitterUrl || '',
                 instagramUrl: settings.instagramUrl || '',
+                linkedinUrl: settings.linkedinUrl || '',
+                youtubeUrl: settings.youtubeUrl || '',
                 carouselImages: settings.carouselImages ? settings.carouselImages.join('\n') : '',
                 homePageTitle: settings.homePageTitle || '',
                 brandSelectionTitle: settings.brandSelectionTitle || '',
@@ -78,12 +82,12 @@ const AdminSettings = () => {
                         <input name="companyName" value={formData.companyName} onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Phone Number</label>
-                        <input name="phone" value={formData.phone} onChange={handleChange} />
+                        <label>📞 Phone Number</label>
+                        <input name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 9811757846" />
                     </div>
                     <div className="form-group">
-                        <label>Email Address</label>
-                        <input name="email" value={formData.email} onChange={handleChange} />
+                        <label>✉️ Email Address</label>
+                        <input name="email" value={formData.email} onChange={handleChange} placeholder="ttofficesolutions786@gmail.com" />
                     </div>
                     <div className="form-group">
                         <label>Address</label>
@@ -113,13 +117,26 @@ const AdminSettings = () => {
                     </div>
 
                     <h3>Social Media Links</h3>
+                    <p style={{ color: '#666', fontSize: '0.85em', marginBottom: '15px' }}>These links appear as icons in the website header.</p>
                     <div className="form-group">
-                        <label>Facebook URL</label>
-                        <input name="facebookUrl" value={formData.facebookUrl} onChange={handleChange} />
+                        <label>📘 Facebook URL</label>
+                        <input name="facebookUrl" value={formData.facebookUrl} onChange={handleChange} placeholder="https://facebook.com/yourpage" />
                     </div>
                     <div className="form-group">
-                        <label>Instagram URL</label>
-                        <input name="instagramUrl" value={formData.instagramUrl} onChange={handleChange} />
+                        <label>🐦 Twitter / X URL</label>
+                        <input name="twitterUrl" value={formData.twitterUrl} onChange={handleChange} placeholder="https://twitter.com/yourhandle" />
+                    </div>
+                    <div className="form-group">
+                        <label>📸 Instagram URL</label>
+                        <input name="instagramUrl" value={formData.instagramUrl} onChange={handleChange} placeholder="https://instagram.com/yourprofile" />
+                    </div>
+                    <div className="form-group">
+                        <label>💼 LinkedIn URL</label>
+                        <input name="linkedinUrl" value={formData.linkedinUrl} onChange={handleChange} placeholder="https://linkedin.com/company/yourcompany" />
+                    </div>
+                    <div className="form-group">
+                        <label>▶️ YouTube URL</label>
+                        <input name="youtubeUrl" value={formData.youtubeUrl} onChange={handleChange} placeholder="https://youtube.com/@yourchannel" />
                     </div>
 
                     <h3>Home Page Slider (Carousel)</h3>

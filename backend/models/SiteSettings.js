@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 
 const SiteSettingsSchema = new mongoose.Schema({
-    phone: { type: String, default: '+91 85878 38635' },
-    email: { type: String, default: 'info@tt-officesolutions.com' },
+    phone: { type: String, default: '+91 9811757846' },
+    email: { type: String, default: 'ttofficesolutions786@gmail.com' },
     address: { type: String, default: '' },
     logoUrl: { type: String, default: '/src/assets/logo.png' },
     companyName: { type: String, default: 'T&T OFFICE SOLUTIONS' },
     instagramUrl: String,
     facebookUrl: String,
     twitterUrl: String,
+    linkedinUrl: String,
+    youtubeUrl: String,
     carouselImages: { type: [String], default: [] },
 
     // CMS Fields
