@@ -72,7 +72,7 @@ const Home = () => {
         <div className="home-page">
             <Carousel />
             <BrandSection />
-            <ProductSection title={settings?.homePageTitle || "Our Best Sellers"} products={bestSellers} showBrands={false} />
+            <ProductSection title={settings?.homePageTitle || "Our Best Sellers"} products={bestSellers} showBrands={false} hidePrice={true} />
         </div>
     );
 };

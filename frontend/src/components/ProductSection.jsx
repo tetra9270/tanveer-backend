@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 import './ProductSection.css';
 
-const ProductSection = ({ title, products, showBrands = true, showViewDetails = true }) => {
+const ProductSection = ({ title, products, showBrands = true, showViewDetails = true, hidePrice = false }) => {
     return (
         <section className="products-section">
             <div className="container">
@@ -40,11 +40,13 @@ const ProductSection = ({ title, products, showBrands = true, showViewDetails = 
                                 <div className="product-sku">{product.sku || 'Omnires | Part No. 2123532'}</div>
                                 <h3 className="product-card-title">{product.title}</h3>
 
+                                {!hidePrice && (
                                 <div className="product-price-box">
                                     <span className="rupee">₹</span>
                                     <span className="amount">{product.price || '4500.00'}</span>
                                     <span className="net-txt">net</span>
                                 </div>
+                                )}
 
                                 <div className="product-actions">
                                     <Link to={product.link} className="btn-view-details">

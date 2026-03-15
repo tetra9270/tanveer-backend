@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 import ImageUpload from '../components/ImageUpload';
 import './Admin.css';
 
+const DEFAULT_FOOTER_LINKS = [
+    { label: 'Document Shredders', url: '/select-brand/document-shredders' },
+    { label: 'Laminators', url: '/select-brand/laminators' },
+    { label: 'Binders', url: '/select-brand/laminators' },
+    { label: 'Pet Bottle Shredders', url: '/select-brand/app-shredders' },
+];
+
 const AdminSettings = () => {
     const { settings, updateSettings } = useData();
     const [formData, setFormData] = useState({
@@ -24,6 +31,7 @@ const AdminSettings = () => {
         contactInfoText: '',
         footerText: ''
     });
+    const [footerLinks, setFooterLinks] = useState(DEFAULT_FOOTER_LINKS);
 
     useEffect(() => {
         if (settings) {
@@ -45,6 +53,9 @@ const AdminSettings = () => {
                 contactInfoText: settings.contactInfoText || '',
                 footerText: settings.footerText || ''
             });
+            if (settings.footerLinks && settings.footerLinks.length > 0) {
+                setFooterLinks(settings.footerLinks);
+            }
         }
     }, [settings]);
 
@@ -53,12 +64,25 @@ const AdminSettings = () => {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleFooterLinkChange = (index, field, value) => {
+        setFooterLinks(prev => prev.map((link, i) => i === index ? { ...link, [field]: value } : link));
+    };
+
+    const addFooterLink = () => {
+        setFooterLinks(prev => [...prev, { label: '', url: '' }]);
+    };
+
+    const removeFooterLink = (index) => {
+        setFooterLinks(prev => prev.filter((_, i) => i !== index));
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const dataToSave = {
                 ...formData,
-                carouselImages: formData.carouselImages.split('\n').map(s => s.trim()).filter(Boolean)
+                carouselImages: formData.carouselImages.split('\n').map(s => s.trim()).filter(Boolean),
+                footerLinks: footerLinks.filter(l => l.label.trim())
             };
             await updateSettings(dataToSave);
             alert('Settings updated successfully!');
@@ -76,6 +100,8 @@ const AdminSettings = () => {
 
             <div className="edit-form-container">
                 <form onSubmit={handleSubmit}>
+
+                    {/* ── Basic Information ── */}
                     <h3>Basic Information</h3>
                     <div className="form-group">
                         <label>Company Name</label>
@@ -90,10 +116,18 @@ const AdminSettings = () => {
                         <input name="email" value={formData.email} onChange={handleChange} placeholder="ttofficesolutions786@gmail.com" />
                     </div>
                     <div className="form-group">
-                        <label>Address</label>
-                        <textarea name="address" value={formData.address} onChange={handleChange} />
+                        <label>🏢 Registered Office Address</label>
+                        <textarea
+                            name="address"
+                            rows="4"
+                            value={formData.address}
+                            onChange={handleChange}
+                            placeholder={`1-10-72/5/1/A, Cheekoti Gardens,\nBegumpet, Hyderabad - 500 016,\nTelangana, India.`}
+                        />
+                        <p style={{ fontSize: '0.8em', color: '#666' }}>Each line break will appear as a new line in the footer.</p>
                     </div>
 
+                    {/* ── Branding ── */}
                     <h3>Branding</h3>
                     <div className="form-group">
                         <label>Logo URL</label>
@@ -116,6 +150,7 @@ const AdminSettings = () => {
                         )}
                     </div>
 
+                    {/* ── Social Media ── */}
                     <h3>Social Media Links</h3>
                     <p style={{ color: '#666', fontSize: '0.85em', marginBottom: '15px' }}>These links appear as icons in the website header.</p>
                     <div className="form-group">
@@ -139,6 +174,57 @@ const AdminSettings = () => {
                         <input name="youtubeUrl" value={formData.youtubeUrl} onChange={handleChange} placeholder="https://youtube.com/@yourchannel" />
                     </div>
 
+                    {/* ── Footer Settings ── */}
+                    <h3>Footer Settings</h3>
+
+                    <div className="form-group">
+                        <label>📋 Footer — Products Links</label>
+                        <p style={{ fontSize: '0.85em', color: '#666', marginBottom: '10px' }}>
+                            These are the product links shown in the footer's "Products" column.
+                        </p>
+                        {footerLinks.map((link, index) => (
+                            <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '10px', alignItems: 'center' }}>
+                                <input
+                                    value={link.label}
+                                    onChange={(e) => handleFooterLinkChange(index, 'label', e.target.value)}
+                                    placeholder="Link Label (e.g. Document Shredders)"
+                                    style={{ flex: 1 }}
+                                />
+                                <input
+                                    value={link.url}
+                                    onChange={(e) => handleFooterLinkChange(index, 'url', e.target.value)}
+                                    placeholder="URL (e.g. /select-brand/document-shredders)"
+                                    style={{ flex: 1 }}
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => removeFooterLink(index)}
+                                    style={{ background: '#e74c3c', color: 'white', border: 'none', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                                >
+                                    ✕ Remove
+                                </button>
+                            </div>
+                        ))}
+                        <button
+                            type="button"
+                            onClick={addFooterLink}
+                            style={{ background: '#27ae60', color: 'white', border: 'none', borderRadius: '4px', padding: '8px 16px', cursor: 'pointer', marginTop: '5px' }}
+                        >
+                            + Add Link
+                        </button>
+                    </div>
+
+                    <div className="form-group">
+                        <label>© Footer Copyright Text</label>
+                        <input
+                            name="footerText"
+                            value={formData.footerText}
+                            onChange={handleChange}
+                            placeholder="© 2024 T&T Office Solutions. All rights reserved."
+                        />
+                    </div>
+
+                    {/* ── Home Page Slider ── */}
                     <h3>Home Page Slider (Carousel)</h3>
                     <div className="form-group">
                         <label>Image URLs (One per line)</label>
@@ -152,6 +238,7 @@ const AdminSettings = () => {
                         <p style={{ fontSize: '0.8em', color: '#666' }}>Enter direct image links. Leave empty to use default banner.</p>
                     </div>
 
+                    {/* ── Content Management ── */}
                     <h3>Content Management</h3>
                     <div className="form-group">
                         <label>Home Page Title (Best Sellers Section)</label>
@@ -171,11 +258,6 @@ const AdminSettings = () => {
                     <div className="form-group">
                         <label>Contact Info Text (Intro text)</label>
                         <textarea name="contactInfoText" rows="3" value={formData.contactInfoText} onChange={handleChange} />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Footer Text (Copyright / Bottom)</label>
-                        <input name="footerText" value={formData.footerText} onChange={handleChange} />
                     </div>
 
                     <div className="form-actions">

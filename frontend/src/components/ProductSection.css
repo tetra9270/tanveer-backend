@@ -16,8 +16,8 @@
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     margin-top: 30px;
 }
 
@@ -89,9 +89,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 220px;
-    margin-top: 20px;
-    /* Space for the badge */
+    height: 160px;
+    margin-top: 15px;
 }
 
 .card-image-wrapper img {
@@ -187,12 +186,18 @@
     background-color: #0c7340;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .products-section {
         padding: 40px 0;
     }
 
     .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
     }
 }
