@@ -10,7 +10,7 @@ const Contact = () => {
     const infoHeadingColor = settings?.contactInfoHeadingColor || '#1a56db';
     const introText = settings?.contactInfoText || '';
     const companyName = settings?.companyName || 'T&T OFFICE SOLUTIONS';
-    const address = settings?.address || '1-10-72/5/1/A, Cheekoti Gardens,\nBegumpet, Hyderabad - 500 016,\nTelangana, India.';
+    const address = settings?.address || 'B-7 OKHLA VIHAR JAMIA NAGAR\nNEW DELHI, DELHI 110025';
     const email = settings?.email || 'info@tt-officesolutions.com';
     const phone = settings?.phone || '+91 9811757846';
     const formHeading = settings?.contactFormHeading || 'Quick Enquiry';

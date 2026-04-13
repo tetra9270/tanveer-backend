@@ -24,7 +24,7 @@ const Support = () => {
     const visitHeadingColor = settings?.supportVisitHeadingColor || '#111111';
     const visitText = settings?.supportVisitText || 'Drop by our office for a consultation or product demo.';
     const companyName = settings?.companyName || 'T&T OFFICE SOLUTIONS';
-    const address = settings?.address || 'Hyderabad';
+    const address = settings?.address || 'B-7 OKHLA VIHAR JAMIA NAGAR\nNEW DELHI, DELHI 110025';
 
     return (
         <div className="support-page page-container">
