@@ -67,8 +67,10 @@ const Navbar = () => {
                             <Link to="/products" className="dropbtn" onClick={() => setIsOpen(false)}>Products ▾</Link>
                             <div className="dropdown-content">
                                 <Link to="/select-brand/document-shredders" onClick={() => setIsOpen(false)}>Document Shredders</Link>
-                                <Link to="/select-brand/app-shredders" onClick={() => setIsOpen(false)}>Multipurpose Application Shredders</Link>
-                                <Link to="/select-brand/laminators" onClick={() => setIsOpen(false)}>Document Laminators & Binders</Link>
+                                <Link to="/select-brand/multipurpose-shredders" onClick={() => setIsOpen(false)}>Multipurpose Application Shredders</Link>
+                                <Link to="/select-brand/laminators-binders" onClick={() => setIsOpen(false)}>Document Laminators & Binders</Link>
+                                <Link to="/select-brand/waste-management-recycling" onClick={() => setIsOpen(false)}>Waste Management & Recycling</Link>
+                                <Link to="/select-brand/products-on-gem" onClick={() => setIsOpen(false)}>Products on GeM</Link>
                             </div>
                         </li>
                         <li><Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link></li>

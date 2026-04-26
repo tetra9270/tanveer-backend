@@ -9,9 +9,11 @@ const createModel = (id, title, subtitle, specs, description = "") => ({
     subtitle,
     description,
     image: ShreddersImg,
+    category: "Document Shredders",
     specs,
     brochureLink: "#",
-    videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    isAvailableOnGeM: subtitle && subtitle.includes('GeM')
 });
 
 const createAppModel = (id, title, subtitle, specs, description = "") => ({
@@ -20,9 +22,11 @@ const createAppModel = (id, title, subtitle, specs, description = "") => ({
     subtitle,
     description,
     image: AppShreddersImg,
+    category: "Multipurpose Application Shredders",
     specs,
     brochureLink: "#",
-    videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    isAvailableOnGeM: subtitle && subtitle.includes('GeM')
 });
 
 const createLaminatorModel = (id, title, subtitle, specs, description = "") => ({
@@ -31,9 +35,24 @@ const createLaminatorModel = (id, title, subtitle, specs, description = "") => (
     subtitle,
     description,
     image: LaminatorsImg,
+    category: "Document Laminators & Binders",
     specs,
     brochureLink: "#",
-    videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    isAvailableOnGeM: subtitle && subtitle.includes('GeM')
+});
+
+const createWasteModel = (id, title, subtitle, specs, description = "") => ({
+    id,
+    title,
+    subtitle,
+    description,
+    image: LaminatorsImg, // Can replace this with PetShreddersImg if imported, or keep default
+    category: "Waste Management & Recycling",
+    specs,
+    brochureLink: "#",
+    videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    isAvailableOnGeM: subtitle && subtitle.includes('GeM')
 });
 
 export const modelData = {
@@ -44,6 +63,7 @@ export const modelData = {
         subtitle: "DESK SIDE DOCUMENT SHREDDER",
         description: "For high security shredding and continuous operation.",
         image: ShreddersImg,
+        category: "Document Shredders",
         keyFeatures: [
             "Auto Start & Stop",
             "Cutters are made of high grade special alloy steel",
@@ -147,10 +167,10 @@ export const modelData = {
     // --- Multipurpose Application Shredders ---
 
     // Plastic Bottle Shredders
-    "avanti-bs-300": createAppModel("avanti-bs-300", "AVANTI BS 300", "High Technology Document, Volumetric Material & Bottle Shredder cum Disentegrator", {}),
-    "avanti-bs-300x": createAppModel("avanti-bs-300x", "AVANTI BS 300X", "Plastic Film Shredder", {}),
-    "avanti-pws-300": createAppModel("avanti-pws-300", "AVANTI PWS 300", "Plastic Bottle Shredder", {}),
-    "avanti-bs-400": createAppModel("avanti-bs-400", "AVANTI BS 400", "Plastic Bottle Shredder", {}),
+    "avanti-bs-300": createWasteModel("avanti-bs-300", "AVANTI BS 300", "High Technology Document, Volumetric Material & Bottle Shredder cum Disentegrator", {}),
+    "avanti-bs-300x": createWasteModel("avanti-bs-300x", "AVANTI BS 300X", "Plastic Film Shredder", {}),
+    "avanti-pws-300": createWasteModel("avanti-pws-300", "AVANTI PWS 300", "Plastic Bottle Shredder", {}),
+    "avanti-bs-400": createWasteModel("avanti-bs-400", "AVANTI BS 400", "Plastic Bottle Shredder", {}),
 
     // Industrial Multipurpose Shredder
     "avanti-bs-5620": createAppModel("avanti-bs-5620", "AVANTI BS 5620", "INDUSTRIAL MULTIPURPOSE SHREDDER TWIN MOTOR", {}),
@@ -162,22 +182,22 @@ export const modelData = {
     "avanti-ps-409-hu": createAppModel("avanti-ps-409-hu", "AVANTI PS 409 HU", "Multi Application Shredder with Hopper", {}),
 
     // Food Waste Shredder
-    "avanti-fs-300": createAppModel("avanti-fs-300", "AVANTI FS 300", "Food Waste Shredder", {}),
+    "avanti-fs-300": createWasteModel("avanti-fs-300", "AVANTI FS 300", "Food Waste Shredder", {}),
 
     // Glass Waste Shredder
-    "avanti-bc-300": createAppModel("avanti-bc-300", "AVANTI BC 300", "Glass Waste Shredder", {}),
-    "avanti-bc-400": createAppModel("avanti-bc-400", "AVANTI BC 400", "Glass Waste Shredder", {}),
+    "avanti-bc-300": createWasteModel("avanti-bc-300", "AVANTI BC 300", "Glass Waste Shredder", {}),
+    "avanti-bc-400": createWasteModel("avanti-bc-400", "AVANTI BC 400", "Glass Waste Shredder", {}),
 
     // Garden Waste Shredder
-    "avanti-ms-4050": createAppModel("avanti-ms-4050", "AVANTI MS 4050", "Garden Waste Shredder", {}),
+    "avanti-ms-4050": createWasteModel("avanti-ms-4050", "AVANTI MS 4050", "Garden Waste Shredder", {}),
 
     // E-Waste Shredder
-    "avanti-ec-300-hdd-combo": createAppModel("avanti-ec-300-hdd-combo", "AVANTI EC 300 HDD COMBO", "E-Waste Shredder", {}),
-    "avanti-es-400-hd-combo": createAppModel("avanti-es-400-hd-combo", "AVANTI ES 400 HD COMBO", "E-Waste Shredder", {}),
-    "avanti-ews-4050": createAppModel("avanti-ews-4050", "AVANTI EWS 4050", "E-Waste Shredder", {}),
-    "avanti-ews-5010": createAppModel("avanti-ews-5010", "AVANTI EWS 5010", "E-Waste Shredder", {}),
-    "avanti-ews-5515": createAppModel("avanti-ews-5515", "AVANTI EWS 5515", "E-Waste Shredder", {}),
-    "avanti-ews-5620": createAppModel("avanti-ews-5620", "AVANTI EWS 5620", "E-Waste Shredder", {}),
+    "avanti-ec-300-hdd-combo": createWasteModel("avanti-ec-300-hdd-combo", "AVANTI EC 300 HDD COMBO", "E-Waste Shredder", {}),
+    "avanti-es-400-hd-combo": createWasteModel("avanti-es-400-hd-combo", "AVANTI ES 400 HD COMBO", "E-Waste Shredder", {}),
+    "avanti-ews-4050": createWasteModel("avanti-ews-4050", "AVANTI EWS 4050", "E-Waste Shredder", {}),
+    "avanti-ews-5010": createWasteModel("avanti-ews-5010", "AVANTI EWS 5010", "E-Waste Shredder", {}),
+    "avanti-ews-5515": createWasteModel("avanti-ews-5515", "AVANTI EWS 5515", "E-Waste Shredder", {}),
+    "avanti-ews-5620": createWasteModel("avanti-ews-5620", "AVANTI EWS 5620", "E-Waste Shredder", {}),
 
     // Laminate Shredder
     "avanti-ps-404-l": createAppModel("avanti-ps-404-l", "AVANTI PS 404 L", "Laminate Shredder", {}),

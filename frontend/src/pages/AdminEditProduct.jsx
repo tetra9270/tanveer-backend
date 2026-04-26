@@ -182,10 +182,14 @@ const AdminEditProduct = () => {
                                     <option value="Document Shredders">Document Shredders</option>
                                     <option value="Multipurpose Application Shredders">Multipurpose Application Shredders</option>
                                     <option value="Document Laminators & Binders">Document Laminators & Binders</option>
+                                    <option value="Waste Management & Recycling">Waste Management & Recycling</option>
+                                    <option value="Products on GeM">Products on GeM</option>
                                     {[...new Set(Object.values(allModels).map(m => m.category).filter(Boolean))].filter(c =>
                                         c !== 'Document Shredders' &&
                                         c !== 'Multipurpose Application Shredders' &&
-                                        c !== 'Document Laminators & Binders'
+                                        c !== 'Document Laminators & Binders' &&
+                                        c !== 'Waste Management & Recycling' &&
+                                        c !== 'Products on GeM'
                                     ).map(c => (
                                         <option key={c} value={c}>{c}</option>
                                     ))}

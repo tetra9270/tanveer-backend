@@ -14,8 +14,10 @@ const Products = () => {
 
     const products = [
         { id: 1, title: 'Document Shredders', image: ShreddersImg, link: '/select-brand/document-shredders', slug: 'document-shredders' },
-        { id: 2, title: 'Multipurpose Application Shredders', image: AppShreddersImg, link: '/select-brand/app-shredders', slug: 'app-shredders' },
-        { id: 3, title: 'Document Laminators & Binders', image: LaminatorsImg, link: '/select-brand/laminators', slug: 'laminators' }
+        { id: 2, title: 'Multipurpose Application Shredders', image: AppShreddersImg, link: '/select-brand/multipurpose-shredders', slug: 'multipurpose-shredders' },
+        { id: 3, title: 'Document Laminators & Binders', image: LaminatorsImg, link: '/select-brand/laminators-binders', slug: 'laminators-binders' },
+        { id: 4, title: 'Waste Management & Recycling', image: AppShreddersImg, link: '/select-brand/waste-management-recycling', slug: 'waste-management-recycling' },
+        { id: 5, title: 'Products on GeM', image: ShreddersImg, link: '/select-brand/products-on-gem', slug: 'products-on-gem' }
     ];
 
     const filteredModels = searchTerm

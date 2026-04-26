@@ -17,9 +17,10 @@ const Footer = () => {
     // Footer product links (editable via admin)
     const footerLinks = settings?.footerLinks || [
         { label: 'Document Shredders', url: '/select-brand/document-shredders' },
-        { label: 'Laminators', url: '/select-brand/laminators' },
-        { label: 'Binders', url: '/select-brand/laminators' },
-        { label: 'Pet Bottle Shredders', url: '/select-brand/app-shredders' },
+        { label: 'Multipurpose Application Shredders', url: '/select-brand/multipurpose-shredders' },
+        { label: 'Document Laminators & Binders', url: '/select-brand/laminators-binders' },
+        { label: 'Waste Management & Recycling', url: '/select-brand/waste-management-recycling' },
+        { label: 'Products on GeM', url: '/select-brand/products-on-gem' },
     ];
 
     return (
